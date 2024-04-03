@@ -59,5 +59,10 @@ func main() {
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
 	})
 
-	http.ListenAndServe(":8080", c.Handler(router))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	http.ListenAndServe(":"+port, c.Handler(router))
 }

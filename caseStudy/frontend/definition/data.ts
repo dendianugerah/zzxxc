@@ -14,8 +14,10 @@ export type Task = {
   subTasks?: SubTask[];
 };
 
+const API_URL = "https://zzxxc.onrender.com"
+
 export const createTask = async (data: Task) => {
-  const response = await fetch("http://localhost:8080/api/task", {
+  const response = await fetch(`${API_URL}/api/tasks`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +34,7 @@ export const createTask = async (data: Task) => {
 };
 
 export const getTasks = async (): Promise<Task[]> => {
-  const response = await fetch("http://localhost:8080/api/tasks");
+  const response = await fetch(`${API_URL}/api/tasks`);
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -43,7 +45,7 @@ export const getTasks = async (): Promise<Task[]> => {
 };
 
 export const deleteTask = async (id: string) => {
-  const response = await fetch(`http://localhost:8080/api/task/${id}`, {
+  const response = await fetch(`${API_URL}/api/task/${id}`, {
     method: "DELETE",
   });
 
@@ -57,7 +59,7 @@ export const deleteTask = async (id: string) => {
 
 export const markTaskAsCompleted = async (id: string) => {
   const response = await fetch(
-    `http://localhost:8080/api/task/${id}/complete`,
+    `${API_URL}/api/task/${id}/complete`,
     {
       method: "PUT",
     }
@@ -73,7 +75,7 @@ export const markTaskAsCompleted = async (id: string) => {
 
 export const updateTask = async (id: string, data: Task) => {
   try {
-    const response = await fetch(`http://localhost:8080/api/task/${id}`, {
+    const response = await fetch(`${API_URL}/api/task/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

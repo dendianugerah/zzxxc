@@ -17,7 +17,7 @@ export type Task = {
 const API_URL = "https://zzxxc.onrender.com"
 
 export const createTask = async (data: Task) => {
-  const response = await fetch(`${API_URL}/api/tasks`, {
+  const response = await fetch(`${API_URL}/api/task`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -54,7 +54,7 @@ func main() {
 	fmt.Println("Server started at port 8080")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{"https://sra-todoapp.vercel.app"},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
 	})
